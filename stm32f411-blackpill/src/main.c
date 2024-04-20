@@ -118,7 +118,9 @@ int main(int argc, char *argv[])
   uint32_t *pGPIOC_OTYPER = (uint32_t *)STM32_GPIOC_OTYPER;
   uint32_t *pGPIOC_PUPDR  = (uint32_t *)STM32_GPIOC_PUPDR;
   uint32_t *pGPIOC_BSRR   = (uint32_t *)STM32_GPIOC_BSRR;
-
+  uint32_t *pGPIOA_MODER = (unint32_t *)STM32_GPIOA_MODER;
+  uint32_t *PGPIOA_IDR = (uint32_t *)STM32_GPIOA_IDR;
+ 
   /* Habilita clock GPIOC */
 
   reg  = *pRCC_AHB1ENR;
