@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
   uint32_t *pGPIOA_OTYPER = (uint32_t *)STM32_GPIOA_OTYPER;
   uint32_t *pGPIOA_PUPDR  = (uint32_t *)STM32_GPIOA_PUPDR;
   uint32_t *pGPIOA_BSRR   = (uint32_t *)STM32_GPIOA_BSRR;
-  /* Habilita clock GPIOC */
+  /* Habilita clock GPIOC E A */
 
   reg  = *pRCC_AHB1ENR;
   reg |= RCC_AHB1ENR_GPIOCEN;
@@ -175,8 +175,6 @@ int main(int argc, char *argv[])
       *pGPIOC_BSRR = GPIO_BSRR_SET(13);
       for (i = 0; i < LED_DELAY; i++);
       }
-
-  /* Nunca deveria chegar aqui */
-
+    }
   return EXIT_FAILURE;
 }
