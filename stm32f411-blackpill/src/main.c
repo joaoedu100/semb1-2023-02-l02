@@ -155,16 +155,16 @@ int main(int argc, char *argv[])
 
   while(1)
     {
-      /* Liga LED */
-
+      if (!(STM32_GPIO_A_IDR & (1 << 0)))
+      {
       *pGPIOC_BSRR = GPIO_BSRR_RESET(13);
       for (i = 0; i < LED_DELAY; i++);
-
-      /* Desliga LED */
-
+      }
+      else 
+      {
       *pGPIOC_BSRR = GPIO_BSRR_SET(13);
       for (i = 0; i < LED_DELAY; i++);
-    }
+      }
 
   /* Nunca deveria chegar aqui */
 
