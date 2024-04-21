@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
   reg  = *pRCC_AHB1ENR;
   reg |= RCC_AHB1ENR_GPIOCEN;
   *pRCC_AHB1ENR = reg;
-
+  reg |= RCC_AHB1ENR_GPIOAEN;
   /* Configura PC13 como saida pull-up off e pull-down off */
 
   reg = *pGPIOC_MODER;
@@ -152,6 +152,16 @@ int main(int argc, char *argv[])
   reg &= ~GPIO_PUPDR_MASK(13);
   reg |= (GPIO_PUPDR_NONE << GPIO_PUPDR_SHIFT(13));
   *pGPIOC_PUPDR = reg;
+
+  reg = *pGPIOA_MODER;
+  reg &= ~GPIO_MODER_MASK(0);
+  reg |= (GPIO_MODER_INPUT << GPIO_MODER_SHIFT(0));
+  *pGPIOA_MODER = reg; 
+
+  reg = *pGPIOA_PUPDR;
+  reg &= ~GPIO_PUPDR_MASK(0);
+  reg |= (GPIO_PUPDR_PULLUP << GPIO_PUPDR_SHIFT(0));
+  *pGPIOA_PUPDR = reg;
 
   while(1)
     {
